@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Special+Gothic+Condensed+One&display=swap');
+
+
+.orbitron-qm {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.gothic-qm {
+  font-family: "Special Gothic Condensed One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#scroller {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+}
+
+#scroller-in {
+  display: inline-block;
+  animation: scroll-left 20s linear infinite;
+}
+
+#scroller-in h4 {
+  display: inline-block;
+  margin-right: 40px;
+  font-size: 1.5rem;
+  color: #00ffc6;
+  font-weight: bold;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.floating-text {
+  position: relative;
+  display: inline-block;
+  -webkit-background-clip: text;
+  animation: float 3s ease-in-out infinite, shine 1.5s linear infinite;
+  padding: 10px;
+}
+
+.floating-text::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  filter: blur(2px); 
+  animation: glow 5s ease-in-out infinite; 
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px rgba(255, 255, 255, 0.1), 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.3; /* Lower starting opacity */
+  }
+  50% {
+    opacity: 0.6; /* Moderate brightness */
+  }
+  100% {
+    opacity: 0.3; /* Lower ending opacity */
+  }
+}
+

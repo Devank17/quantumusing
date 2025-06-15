@@ -1,0 +1,6 @@
+[
+  { "to": "/", "label": "Dashboard", "icon": "MdSpaceDashboard" },
+  { "to": "/courses", "label": "Courses", "icon": "FaGoogleScholar" },
+  { "to": "/blog", "label": "Blogs", "icon": "ImBlogger" },
+  { "to": "/users", "label": "Users", "icon": "FaUsers" }
+]
