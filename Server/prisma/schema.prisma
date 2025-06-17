@@ -1,0 +1,83 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Blog {
+  id         Int       @id @default(autoincrement())
+  title      String
+  subTitle   String
+  author     String
+  images     String[]  @default([])     
+  thumbnail  String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt      // auto-set on update
+  tags       String[]  @default([])
+  heading    String
+  paragraphs String[]  @default([])
+}
+
+model Course {
+  id            Int       @id @default(autoincrement())
+  title         String?   
+  price         Float?    
+  discount      Float?    
+  languages     String[]  @default([])    
+  thumbnail     String    
+  status        String?   
+  syllabus      String[]  @default([])  
+  certificate   String?   
+  totalContent  String?   
+  schedule      String?   
+  hashtags      String[]  @default([])    
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Query {
+  id         Int       @id @default(autoincrement()) 
+  name       String    
+  email      String                     
+  contact    String    
+  queryType  QueryType // Enum field
+  message    String    
+  status     Status    @default(unanswered)         // Enum with default value
+  createdAt  DateTime  @default(now())              
+  updatedAt  DateTime  @updatedAt                   
+}
+
+// Define the enum for queryType
+enum QueryType {
+  General_Inquiry
+  Technical_Support
+  Career_Opportunity
+  Other
+}
+
+// Define the enum for status
+enum Status {
+  unanswered
+  answered
+}
